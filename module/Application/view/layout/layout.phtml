@@ -14,15 +14,17 @@
                         ->prependStylesheet($this->basePath('css/style.css'))
         ?>
         
-    </head>
-    <body>
-        <div class="container">
-            <?php echo $this->content; ?>
-        </div>        
         <!-- Scripts -->
         <?php echo $this->headScript()
             ->prependFile($this->basePath('js/main.js'))
             ->prependFile($this->basePath('js/jquery-2.2.4.min.js'))
         ?>
+        
+    </head>
+    <body>
+        <div class="container">
+            <?php echo $this->content; ?>
+        </div>       
+        
     </body>
 </html>

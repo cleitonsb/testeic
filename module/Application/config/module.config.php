@@ -24,6 +24,36 @@ return [
                     ],
                 ],
             ],
+            'task1' => [
+                'type' => Literal::class,
+                'options' => [
+                    'route'    => '/task1',
+                    'defaults' => [
+                        'controller' => Controller\IndexController::class,
+                        'action'     => 'task1',
+                    ],
+                ],
+            ],
+            'task3' => [
+                'type' => Literal::class,
+                'options' => [
+                    'route'    => '/task3',
+                    'defaults' => [
+                        'controller' => Controller\IndexController::class,
+                        'action'     => 'task3',
+                    ],
+                ],
+            ],
+            'plus' => [
+                'type' => Literal::class,
+                'options' => [
+                    'route'    => '/plus',
+                    'defaults' => [
+                        'controller' => Controller\IndexController::class,
+                        'action'     => 'plus',
+                    ],
+                ],
+            ],
             'application' => [
                 'type'    => Segment::class,
                 'options' => [

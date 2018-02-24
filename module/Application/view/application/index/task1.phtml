@@ -1,0 +1,20 @@
+<?php 
+foreach ($data as $game => $value){
+   
+    ?><div class="game">
+    	<?php echo $game ?>: { 
+    	<div class='nivel1'>total_kills: <?php echo $value['total_kills']?>;</div>
+        <div class='nivel1'>players: <?php echo json_encode($value['players'])?>;</div>
+        <div class='nivel1'>kills: {
+    	<?php 
+    	    foreach ($value['kills'] as $player => $kill){
+                ?><div class='nivel1'><?php echo $player.":".$kill?>,</div><?php 
+            }
+        ?>
+        }
+        </div> 
+        }
+    </div>
+<?php 
+}
+?>
