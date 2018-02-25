@@ -1,0 +1,92 @@
+$background: #DADADA;
+$corprimaria: #F7A600;
+$zebra1: #646363;
+$zebra2: #7C7B7B;
+
+body{
+    font-family: 'Roboto', sans-serif;
+	background-color: $background;
+	font-size: 20px;	
+}
+
+.game{
+	margin-bottom: 30px;
+}
+
+.nivel1{
+	margin-left: 40px;
+}
+
+.container{
+	padding-left: 100px;
+}
+
+.corpo-rank{
+	width: 500px;
+	margin: 0 auto;
+}
+
+.topo{
+	input{
+		width: 70%;
+		border: 2px solid #fff;
+		font-size: 20px;
+		line-height: 36px;
+		background-color: $background;
+		padding: 10px;		
+	}	
+	button{
+		width: 26%;
+		background-color: $zebra1;
+		border: 2px solid $zebra1;
+		font-size: 20px;
+		line-height: 36px;
+		padding: 10px;
+		margin: -7px !important;
+		color: $corprimaria;
+	}
+}
+
+table{
+	width: 100%;
+	margin-top: 30px;
+	font-size: 20px;	
+	border-collapse: collapse;
+	th img{
+		width: 30px;
+		margin-top: 5px;	
+		float: left;
+	}
+	th{
+		background-color: $corprimaria;
+		color: #000;
+		font-size: 24px;
+		padding: 10px;
+		line-height: 40px;
+		border: 0px solid #000;	
+	}
+	th:first-child {
+		text-align: left;
+		width: 75%;
+	}
+	tr:nth-child(2n+1) {
+	    background: $zebra2;
+	}
+	tr:nth-child(2n+2) {
+	    background: $zebra1;
+	}
+	td{
+		padding: 5px 0px 5px 10px;
+		color: #fff;
+		height: 40px;
+		vertical-align: bottom;	
+	}
+	td:nth-child(2n+2) {
+	    text-align: center;
+	    font-weight: bold;
+	}
+}
+
+.neg{
+	color: $corprimaria;
+}
