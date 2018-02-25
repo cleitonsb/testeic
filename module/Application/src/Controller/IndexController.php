@@ -73,9 +73,13 @@ class IndexController extends AbstractActionController
     
     public function task3Action()
     {
+        $request = $this->getRequest();
         
+        if($request->isPost()){
+            $data = $this->getRequest()->getPost();
+        }
         
-        return $this->response;
+        return new ViewModel(['players' => $this->playerTable->fetchAll($data['busca'])]);
     }
     
     /**
