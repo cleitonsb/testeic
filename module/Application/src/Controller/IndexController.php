@@ -39,7 +39,7 @@ class IndexController extends AbstractActionController
         /*envio para view para ser exibido na tela
          Porém, podemos exetar várias ações aqui, como gravar em arquivo ou gravar no banco de dados, como na task2         
          */
-        return new ViewModel(['data' => $data]);        
+        return new ViewModel(['data' => $data[0]]);        
     }
     
     public function task2Action()
@@ -82,6 +82,16 @@ class IndexController extends AbstractActionController
         return new ViewModel(['players' => $this->playerTable->fetchAll($data['busca'])]);
     }
     
+    public function plusAction()
+    {
+        $data = $this->parser('public/arquivos/games.log');
+        
+        /*envio para view para ser exibido na tela
+         Porém, podemos exetar várias ações aqui, como gravar em arquivo ou gravar no banco de dados, como na task2
+         */
+        return new ViewModel(['data' => $data[1]]);
+    }
+    
     /**
      * Função para extrair os players dentro da string
      * @param string $string
@@ -95,8 +105,9 @@ class IndexController extends AbstractActionController
             $player2 = explode("by", $stringArr[1]);
             
             return [
-                'player1' => trim(end($player1)),
-                'player2' => trim($player2[0]),
+                'player1'   => trim(end($player1)),
+                'player2'   => trim($player2[0]),
+                'tipokill'  => trim($player2[1]),
             ];
         }                
     }
@@ -104,18 +115,20 @@ class IndexController extends AbstractActionController
     
     public function parser($arquivo)
     {
-        // abro o arquivo para leitura
-        $fp = fopen($arquivo, 'r');
-        
-        // laço para percorrer todo o arquivo
-        $i=0;
         $arrayGames = [];
         $totalKills = 0;
         $players    = [];
         $kills      = [];
+        $arrayKills = [];
+        $tipoKills  = [];
         
         $val = 0;
         
+        // abro o arquivo para leitura
+        $fp = fopen($arquivo, 'r');
+        $i=0;
+        
+        // laço para percorrer todo o arquivo
         while(!feof($fp)) {
             // leio linha por linha
             $linha = fgets($fp, 4096);
@@ -131,6 +144,7 @@ class IndexController extends AbstractActionController
                     $i++;
                     $gameAtual = "game_".$i;
                     
+                    // alimento o array com dados do game
                     $arrayGames[$gameAtual] = [
                         'total_kills'   => $totalKills,
                         'players'       => $players,
@@ -140,6 +154,14 @@ class IndexController extends AbstractActionController
                     $totalKills = 0;
                     $players    = [];
                     $kills      = [];
+                    
+                    // alimento o array com dados dos kills
+                    $arrayKills[$gameAtual] = [
+                        'kills_by_means' => $tipoKills,
+                    ];
+                    
+                    $tipoKills  = [];
+                    
                 }
                 
             }else if($linhaArr[1] == 'Kill:'){ // verifico se eh kill
@@ -184,6 +206,13 @@ class IndexController extends AbstractActionController
                         $kills[$result['player2']] = $kills[$result['player2']] - 1;
                     }
                 }
+                
+                // array com tipos de morte 
+                if (!array_key_exists($result['tipokill'], $tipoKills)) {
+                    $tipoKills[$result['tipokill']] = 1;
+                }else{
+                    $tipoKills[$result['tipokill']] = $tipoKills[$result['tipokill']] + 1;
+                }
             }
             
         }
@@ -191,7 +220,7 @@ class IndexController extends AbstractActionController
         fclose($fp);
         
         //retorno o array com todos os dados
-        return $arrayGames;        
+        return [$arrayGames, $arrayKills];        
     }
     
 }

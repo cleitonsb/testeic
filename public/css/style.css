@@ -13,6 +13,10 @@ body{
 }
 
 .container{
+	padding-left: 100px;
+}
+
+.corpo-rank{
 	width: 500px;
 	margin: 0 auto;
 }

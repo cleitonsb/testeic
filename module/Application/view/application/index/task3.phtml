@@ -1,31 +1,34 @@
-<div class="topo">
-    <h1>RANKING</h1>
-    
-    <div>
-    	<form method="post">
-        	<input type="text" name="busca" id="busca" placeholder="Busca por nome">
-        	<button type="submit" id="btnBuscar">Buscar</button>
-    	</form>
-	</div>
-</div>
 
-<table>
-	<thead>
-		<tr>
-			<th>NAME</th>
-			<th><img alt="kills" src="/public/img/poison.svg"> <span>KILLS</span></th>
-		</tr>
-	</thead>
-	<tbody>
-		<?php 
-        foreach ($players as $player){
+<div class="corpo-rank">
+    <div class="topo">
+        <h1>RANKING</h1>
+        
+        <div>
+        	<form method="post">
+            	<input type="text" name="busca" id="busca" placeholder="Busca por nome">
+            	<button type="submit" id="btnBuscar">Buscar</button>
+        	</form>
+    	</div>
+    </div>
+    
+    <table>
+    	<thead>
+    		<tr>
+    			<th>NAME</th>
+    			<th><img alt="kills" src="/public/img/poison.svg"> <span>KILLS</span></th>
+    		</tr>
+    	</thead>
+    	<tbody>
+    		<?php 
+            foreach ($players as $player){
+                ?>
+                <tr>
+                	<td><?php echo $player->nome?></td>
+                	<td <?php if($player->kills < 0) echo 'class="neg"'?>><?php echo $player->kills?></td>
+            	</tr>
+                <?php 
+            }
             ?>
-            <tr>
-            	<td><?php echo $player->nome?></td>
-            	<td <?php if($player->kills < 0) echo 'class="neg"'?>><?php echo $player->kills?></td>
-        	</tr>
-            <?php 
-        }
-        ?>
-	</tbody>
-</table>
+    	</tbody>
+    </table>
+</div>

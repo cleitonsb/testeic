@@ -1,0 +1,18 @@
+<?php 
+foreach ($data as $game => $value){ 
+   
+    ?><div class="game">
+    	<?php echo $game ?>: { 
+    	<div class='nivel1'>kills_by_means: {
+    	<?php 
+    	    foreach ($value['kills_by_means'] as $tipo => $kill){
+    	        ?><div class='nivel1'><?php echo $tipo.":".$kill?>,</div><?php 
+            }
+        ?>
+        }
+        </div> 
+        }
+    </div>
+<?php 
+}
+?>
