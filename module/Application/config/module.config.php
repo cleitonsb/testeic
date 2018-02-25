@@ -9,7 +9,6 @@ namespace Application;
 
 use Zend\Router\Http\Literal;
 use Zend\Router\Http\Segment;
-use Zend\ServiceManager\Factory\InvokableFactory;
 
 return [
     'router' => [
@@ -31,6 +30,16 @@ return [
                     'defaults' => [
                         'controller' => Controller\IndexController::class,
                         'action'     => 'task1',
+                    ],
+                ],
+            ],
+            'task2' => [
+                'type' => Literal::class,
+                'options' => [
+                    'route'    => '/task2',
+                    'defaults' => [
+                        'controller' => Controller\IndexController::class,
+                        'action'     => 'task2',
                     ],
                 ],
             ],

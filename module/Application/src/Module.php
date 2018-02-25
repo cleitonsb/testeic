@@ -12,6 +12,10 @@ use Zend\ModuleManager\Feature\ServiceProviderInterface;
 use Zend\ModuleManager\Feature\ControllerProviderInterface;
 use Application\Controller\IndexController;
 use Application\Controller\Factory\IndexControlerFactory;
+use Application\Model\Factory\GameTableFactory;
+use Application\Model\Factory\GameTableGatewayFactory;
+use Application\Model\Factory\PlayerTableFactory;
+use Application\Model\Factory\PlayerTableGatewayFactory;
 
 class Module implements ConfigProviderInterface, ServiceProviderInterface, ControllerProviderInterface
 {
@@ -26,12 +30,10 @@ class Module implements ConfigProviderInterface, ServiceProviderInterface, Contr
     {
         return [
             'factories' => [
-                /* Model\NfeTable::class => NfeTableFactory::class,
-                Model\NfeTableGateway::class => NfeTableGatewayFactory::class,
-                NfeForm::class  => NfeFormFactory::class,
-                
-                Model\NfeprodTable::class => NfeprodTableFactory::class,
-                Model\NfeprodTableGateway::class => NfeprodTableGatewayFactory::class, */
+                Model\GameTable::class => GameTableFactory::class,
+                Model\GameTableGateway::class => GameTableGatewayFactory::class,   
+                Model\PlayerTable::class => PlayerTableFactory::class,
+                Model\PlayerTableGateway::class => PlayerTableGatewayFactory::class,
             ]
         ];
     }
