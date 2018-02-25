@@ -1,6 +1,6 @@
 # testeic
 
-##Teste admissional IC Comunicações
+## Teste admissional IC Comunicações
 
 Atividades desenvolvidas como teste proposto pela IC Comunicações
 
@@ -13,28 +13,28 @@ A modelagem do banco de dados foi realizada utilizando a ferramenta MySQL Workbe
 Para a folha de estilo utilizei o pré-processador SASS para a otimização do CSS.
 
 
-**Task1**
+### Task1
 
 Na atividade 1 realizei a leitura e tratamento dos dados do arquivo games.log, pupulei um array com os dados obtidos e exibi na tela esses dados, no formato proposto. A saida dessa atividade poderia ser outro arquivo, json, xml, gravação em banco de dados, etc. Reutilizei a mesma função nas atividades 2 e 3. 
 
-**Task2**
+### Task2
  
 Com o parse que criei na atividade 1, alimentei as 2 tabelas do banco de dados, games e players.
 
-**Task3**
+### Task3
 
 Como os dados das tabelas, montei um rank ordenado pelo número de kills de cada player. Fiz exatamente como solicitava o enunciado, porém podiamos melhorar, removendo o botão **buscar** e realizando a busca dinâmica por ajax.
 
-**Plus**
+### Plus
  
 Ainda utilizado o parse da atividade 1, gerei um novo relatório exibindo dados do número de mortes agrupado por tipo, separando por partida.
 
 
-###Instalação
+## Instalação
 
 Para executar a instalação, clone esse git ou faça o download e copie para a pasta raiz do servidor. É necessário ativar o mod_rewrite do apache para possibilitar a reescrita de URL. Após isso execute o script SQL que se encontra na pasta /public/arquivos.
 
-###Execução
+## Execução
 
 Para a melhor visualização, eu separei as atividades em links distintos
 
