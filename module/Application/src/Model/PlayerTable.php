@@ -72,11 +72,10 @@ class PlayerTable
     }
     
     /**
-     * Remoção de registro
-     * @param int $id
+     * Remoção de todos os registro
      */
-    public function delete($id)
+    public function delete()
     {
-        $this->tableGateway->update(['sit' => false],['idplayer' => (int)$id]);
+        $this->tableGateway->delete("idplayer > 0");
     }
 }

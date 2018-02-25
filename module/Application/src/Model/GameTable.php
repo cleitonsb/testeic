@@ -60,11 +60,10 @@ class GameTable
     }
     
     /**
-     * Remoção de registro
-     * @param int $id
+     * Remoção de todos os registro
      */
-    public function delete($id)
+    public function delete()
     {
-        $this->tableGateway->update(['sit' => false],['idgame' => (int)$id]);
+        $this->tableGateway->delete('idgame > 0');
     }
 }

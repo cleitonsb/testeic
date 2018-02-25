@@ -44,9 +44,13 @@ class IndexController extends AbstractActionController
     
     public function task2Action()
     {
+        
+        $this->playerTable->delete();
+        $this->gameTable->delete();
+        
         $data = $this->parser('public/arquivos/games.log');
         
-        foreach ($data as $game => $value){
+        foreach ($data[0] as $game => $value){
             
             $gameObj = new Game();
             $gameObj->exchangeArray(['descricao' => $game]);
@@ -62,8 +66,7 @@ class IndexController extends AbstractActionController
                 ]);
                 
                 $this->playerTable->save($playerObj);
-            }
-            
+            }            
         }
         
         echo "Sucesso na gravação dos dados!";
